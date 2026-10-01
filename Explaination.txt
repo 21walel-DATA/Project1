@@ -1,0 +1,46 @@
+The first block (terminal commands)
+bash
+git clone https://github.com/<person1>/team-demo.git
+
+Downloads a full copy of Person 1's repository to your computer. Replace <person1> with their actual GitHub username. Despite being named after Person 1, this is run by Person 2, the one making changes.
+
+bash
+cd team-demo
+
+Moves your terminal into the folder that was just created.
+
+bash
+git checkout -b update-files
+
+Creates a new branch called update-files and switches to it. A branch is a separate line of work, so your edits don't touch the main version (main) until they're reviewed.
+
+bash
+# edit file1.txt and file2.txt
+
+This is just a comment, not a command. It means: open those files in any editor, change something, and save.
+
+bash
+git add .
+
+Stages all your changed files, meaning you're marking them to be included in the next commit. The . means "everything in this folder."
+
+bash
+git commit -m "Update file1 and file2"
+
+Saves a snapshot of the staged changes locally, with a short message describing what you did.
+
+bash
+git push -u origin update-files
+
+Uploads your branch to GitHub. origin is the nickname for the GitHub repo you cloned from, and -u links your local branch to the remote one so future pushes are simpler.
+
+The GitHub steps
+Person 2 goes to the repo on GitHub. A yellow banner appears offering "Compare & pull request". They click it, write a short description of what changed, and create the pull request (PR). A PR is a formal request saying "please merge my branch into main."
+Person 1 opens the PR and clicks the "Files changed" tab, which shows exactly what was added or removed (green and red lines). They can hover over a line and click the + to leave a comment on it. When satisfied, they click Review changes → Approve, then Merge pull request.
+Both people sync their computers, since main on GitHub now contains the new changes:
+bash
+git checkout main   # switch back to the main branch
+git pull            # download the latest version from GitHub
+One practical note
+
+For the clone step to work for Person 2, they need permission to push to Person 1's repo. Person 1 can add them under Settings → Collaborators. Otherwise Person 2 would need to fork the repo first.
