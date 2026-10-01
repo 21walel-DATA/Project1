@@ -1,3 +1,2 @@
-Test project
-Walied made some changes 
-This line was edited directly on GitHub main branch
+
+This line was resolved after a merge conflict!
